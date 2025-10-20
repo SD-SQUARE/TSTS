@@ -1,6 +1,6 @@
-echo "Start Formatting"
+echo "Start Husky"
 
-npm run format || exit 1
+# npm run format || exit 1
 
 # npm run lint || exit 1
 
