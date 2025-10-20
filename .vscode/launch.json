@@ -1,0 +1,25 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug Nodemon + TypeScript (ESM)",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "nodemon",
+            "runtimeArgs": [
+                "--inspect",
+                "--exec",
+                "node --loader ts-node/esm",
+                "src/index.ts"
+            ],
+            "restart": true,
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "autoAttachChildProcesses": true,
+            "cwd": "${workspaceFolder}/api"
+        }
+    ]
+}
