@@ -1,0 +1,6 @@
+echo "Start Formatting"
+
+npm run format || exit 1
+
+# npm run lint || exit 1
+
