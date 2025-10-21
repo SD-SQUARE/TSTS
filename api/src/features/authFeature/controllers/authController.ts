@@ -1,25 +1,43 @@
 import { Request, Response } from "express";
-import { generateToken ,generateRefreshToken} from "../../../utils/jwt.js";
-import {  validationResult } from "express-validator";
+import { generateToken, generateRefreshToken } from "../../../utils/jwt.js";
+import { validationResult } from "express-validator";
 import { findUserByEmail } from "../utils/validator/emailValidator.js";
-
-
+import { attachTrails } from "../middlewares/attachRemainingAttempts.js";
+import { loginRateLimiter } from "../middlewares/loginRateLimiter.js";
+import { Errors} from "../../../utils/enums/errorEnum.js";
 
 export const login = async (req: Request, res: Response): Promise<void> => {
   try {
     const errors = validationResult(req);
+
     if (!errors.isEmpty()) {
-      res.status(400).json({ errors: errors.array() });
+          res.status(400).json({
+            code: errors.array()[0].msg
+      });
       return;
     }
 
     const { email, password } = req.body;
-    const user = await findUserByEmail(email, res);;
-    if (!user) return;
-    
+
+    const user = await findUserByEmail(email, res);
+
+    if (!user) {
+          res.status(400).json({
+            code:Errors.Err008,
+          });
+      return;
+    }
+
     const isMatch = await user.comparePassword(password);
+
     if (!isMatch) {
-      res.status(400).json({ message: "Invalid password" });
+      loginRateLimiter(req, res, () => {
+        attachTrails(req, res, () => {
+          res.status(400).json({
+            code:Errors.Err010,
+          });
+        });
+      });
       return;
     }
 
@@ -37,9 +55,8 @@ export const login = async (req: Request, res: Response): Promise<void> => {
       message: "Login successful",
       data: { token },
     });
+
   } catch (err: any) {
-    console.error("Login Error:", err.message);
-    res.status(500).json({ message: "Server error" });
+    res.status(500).json({ code: Errors.Err012 });
   }
 };
-

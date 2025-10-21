@@ -15,4 +15,3 @@ export const ENV = {
   JWT_SECRET_REFRESH: process.env.JWT_SECRET_REFRESH || "default_refresh_secret",
   JWT_EXPIRES_IN_REFRESH: process.env.JWT_EXPIRES_IN_REFRESH || "8d",
 };
-console.log("Environment Variables Loaded:", ENV);

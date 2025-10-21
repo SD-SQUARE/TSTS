@@ -15,7 +15,7 @@ export const generateUsers = async (): Promise<void> => {
     const users: SeedUser[] = [];
 
     for (let i = 1; i <= 15; i++) {
-      const hashedPassword = await bcrypt.hash("password", 10);
+      const hashedPassword = await bcrypt.hash("Pass@123", 10);
       users.push({
         name: `User ${i}`,
         email: `user${i}@example.com`,
@@ -23,7 +23,7 @@ export const generateUsers = async (): Promise<void> => {
       });
     }
     // Add an admin user
-    const adminHashedPassword = await bcrypt.hash("password", 10);
+    const adminHashedPassword = await bcrypt.hash("Pass@123", 10);
     users.push({
       name: "Admin User",
       email: "admin@example.com" ,
