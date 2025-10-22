@@ -1,0 +1,38 @@
+{
+    "forgotPassword": {
+        "title": "نسيت كلمة المرور",
+        "steps": {
+        "email": "البريد الإلكتروني",
+        "otp": "رمز التحقق",
+        "reset": "إعادة التعيين"
+    },
+    "emailLabel": "البريد الإلكتروني",
+    "requiredEmailError": "يرجى ادخال بريدك الإلكتروني!",
+    "invalidEmailError": "يرجى ادخال بريد صحيح!",
+    "sendOtp": "إرسال الرمز",
+    "sendOtpError": "فشل في ارسال الرمز!",
+    "otpLabel": "أدخل الرمز",
+    "otpSent": "تم إرسال الرمز بنجاح!",
+    "otpInfo": "تم إرسال رمز مكون من 6 أرقام إلى بريدك الإلكتروني",
+    "otpPlaceholder": "أدخل الرمز المرسل إلى بريدك الإلكتروني",
+    "requiredOtpError": "يرجى ادخال الرمز المرسل إلى بريدك الإلكتروني!",
+    "otpResend": "إعادة الإرسال",
+    "otpResendError": "فشل في اعادة الارسال!",
+    "otpResendIn": "إعادة الإرسال خلال",
+    "otpInvalid": "رمز غير صالح!",
+    "otpVerified": "تم التحقق من الرمز!",
+    "resetSuccess": "تم تغيير كلمة المرور بنجاح!",
+    "resetFailed": "فشل في تغيير كلمة المرور!",
+    "password": "كلمة المرور الجديدة",
+    "confirmPassword": "تأكيد كلمة المرور",
+    "passwordMismatch": "كلمتا المرور غير متطابقتان!",
+    "requiredPasswordError": "يرجى ادخال كلمة المرور!",
+    "passwordTooShort": "كلمة المرور يجب ان تكون على الاقل 8 حروف",
+    "weakPassword": "كلمة المرور يجب ان تحتوي على حرف كبير وحرف صغير ورقم وحرف خاص",
+    "requiredConfirmPasswordError": "يرجى تاكيد كلمة المرور!",
+    "back": "رجوع",
+    "verifyOtp": "تحقق من الرمز",
+    "changePassword": "تغيير كلمة المرور",
+    "required": "مطلوب"
+}
+}

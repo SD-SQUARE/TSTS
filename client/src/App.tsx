@@ -1,43 +1,40 @@
-
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect } from 'react'
 import './App.css'
+import {  ConfigProvider, message } from 'antd'
+import { useTranslation } from 'react-i18next'
+import en from 'antd/locale/en_US';
+import ar from 'antd/locale/ar_EG';
+import ForgotPasswordForm from './Components/ForgotPasswordForm/ForgotPasswordForm';
 
-/**
- * App component.
- *
- * Renders the app component which displays the Vite and React logos, a counter
- * and a paragraph with links to the Vite and React documentation.
- *
- * @returns {JSX.Element} The app component.
- */
+
 function App() {
-  const [count, setCount] = useState(0)
+  const { i18n } = useTranslation();
+  const isArabic = i18n.language === 'ar';
+
+  useEffect(() => {
+    message.config({
+      rtl: isArabic,  
+      top: isArabic ? 20 : 20, 
+      duration: 2, 
+    });
+  }, [isArabic]);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <ConfigProvider direction={isArabic ? 'rtl' : 'ltr'} locale={isArabic ? ar : en} theme={{
+      token: {
+        colorPrimary: '#023373', 
+        colorLink: '#023373', 
+      },
+    }}>
+      <div style={{ padding: 20, textAlign: 'center' }}>
+        {/* for testing localization */}
+        {/* <Button onClick={() => i18n.changeLanguage(isArabic ? 'en' : 'ar')}>
+          {isArabic ? 'en' : 'ع'}
+        </Button> */}
+
+        <ForgotPasswordForm />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </ConfigProvider>
   )
 }
 

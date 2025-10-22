@@ -1,0 +1,38 @@
+{
+    "forgotPassword": {
+        "title": "Forgot Password",
+        "steps": {
+        "email": "Email",
+        "otp": "Verify OTP",
+        "reset": "Reset Password"
+        },
+    "emailLabel": "Email",
+    "requiredEmailError": "Please enter your email!",
+    "invalidEmailError": "Please enter a valid email!",
+    "sendOtp": "Send OTP",
+    "sendOtpError": "Failed to send OTP!",
+    "otpLabel": "Enter OTP",
+    "otpSent": "OTP sent successfully!",
+    "otpInfo": "We’ve sent a 6-digit verification code to your email",
+    "otpPlaceholder": "Enter the OTP sent to your email",
+    "requiredOtpError": "Please enter the OTP sent to your email!",
+    "otpResend": "Resend OTP",
+    "otpResendError": "Failed to resend OTP!",
+    "otpResendIn": "Resend in ",
+    "otpInvalid": "Invalid OTP!",
+    "otpVerified": "OTP verified!",
+    "resetSuccess": "Password changed successfully!",
+    "resetFailed": "Failed to change password!",
+    "password": "New Password",
+    "confirmPassword": "Confirm Password",
+    "passwordMismatch": "Passwords do not match!",
+    "requiredPasswordError": "Please enter a password!",
+    "passwordTooShort": "Password must be at least 8 characters long",
+  "weakPassword": "Password must contain uppercase, lowercase, number, and special character",
+    "requiredConfirmPasswordError": "Please confirm your password!",
+    "back": "Back",
+    "verifyOtp": "Verify OTP",
+    "changePassword": "Change Password",
+    "required": "Required"
+}
+}
