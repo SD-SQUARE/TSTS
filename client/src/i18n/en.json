@@ -34,5 +34,16 @@
     "verifyOtp": "Verify OTP",
     "changePassword": "Change Password",
     "required": "Required"
+},
+"app": {
+"title": "My App"
+},
+"menu": {
+  "personalInfo": "Personal Info",
+  "recycleBin": "Recycle Bin"
+},
+"sidebar": {
+  "welcome": "Welcome,",
+  "logout": "Logout"
 }
 }

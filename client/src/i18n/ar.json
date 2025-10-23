@@ -34,5 +34,16 @@
     "verifyOtp": "تحقق من الرمز",
     "changePassword": "تغيير كلمة المرور",
     "required": "مطلوب"
-}
+},
+"app": {
+    "title": "التطبيق"
+},
+"menu": {
+    "personalInfo": "معلومات شخصية",
+    "recycleBin": "سلة المحذوفات"
+},
+"sidebar": {
+    "welcome": "مرحبا،",
+    "logout": "تسجيل خروج"
+}  
 }

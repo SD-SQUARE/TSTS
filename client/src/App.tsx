@@ -4,7 +4,11 @@ import {  ConfigProvider, message } from 'antd'
 import { useTranslation } from 'react-i18next'
 import en from 'antd/locale/en_US';
 import ar from 'antd/locale/ar_EG';
-import ForgotPasswordForm from './Components/ForgotPasswordForm/ForgotPasswordForm';
+// import ForgotPasswordForm from './Components/ForgotPasswordForm/ForgotPasswordForm';
+import { Route, Routes } from 'react-router-dom';
+import MainLayout from './Components/Layout/MainLayout';
+import Profile from './Pages/Profile';
+import RecycleBin from './Pages/RecycleBin';
 
 
 function App() {
@@ -26,14 +30,16 @@ function App() {
         colorLink: '#023373', 
       },
     }}>
-      <div style={{ padding: 20, textAlign: 'center' }}>
-        {/* for testing localization */}
-        {/* <Button onClick={() => i18n.changeLanguage(isArabic ? 'en' : 'ar')}>
-          {isArabic ? 'en' : 'ع'}
-        </Button> */}
+      <Routes>
+      <Route element={<MainLayout name="Habiba" />}>
+        <Route path="/" element={<Profile />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/recyclebin" element={<RecycleBin />} />
+      </Route>
+    </Routes>
 
-        <ForgotPasswordForm />
-      </div>
+        {/* <ForgotPasswordForm /> */}
+      
     </ConfigProvider>
   )
 }

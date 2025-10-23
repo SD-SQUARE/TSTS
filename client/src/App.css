@@ -1,3 +1,20 @@
+body{
+  margin: 0;
+}
+
+.custom-sidebar-menu .ant-menu-item-selected {
+  background-color: transparent !important; /* remove blue background */
+  color: #ebc35a !important; /* gold text */
+}
+
+.custom-sidebar-menu .ant-menu-item-selected .ant-menu-title-content {
+  color: #ebc35a !important; /* ensure text stays gold */
+}
+
+.custom-sidebar-menu .ant-menu-item:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* optional hover effect */
+}
+
 .white__light{
   background: #f2f2f2;
 }
