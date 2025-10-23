@@ -1,15 +1,22 @@
 {
   "compilerOptions": {
     "target": "ES2020",
-    "module": "ESNext",
-    "rootDir": "src",
-    "outDir": "dist",
-    "moduleResolution": "Node",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+
+    "noEmit": true, // REQUIRED for ts-node + allowImportingTsExtensions
+    "allowImportingTsExtensions": true, // so you can write: import "./x.ts"
+
+    "baseUrl": "./src",
     "esModuleInterop": true,
-    "strict": false,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+
+    // keep your current preference; consider true later
+    "strict": false
   },
-  "include": [
-    "src"
-  ]
+  "ts-node": {
+    "esm": true,
+    "transpileOnly": true
+  },
+  "include": ["src"]
 }

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "dev": "npm run prepare  && nodemon --watch src --exec \"node --loader ts-node/esm src/index.ts\"",
+    "dev": "npm run prepare && nodemon --watch src --exec \"node --loader ts-node/esm --no-warnings src/index.ts\"",
     "prepare": "husky",
     "format": "prettier --write .",
     "build": "tsc",
@@ -61,6 +61,7 @@
     "express-validator": "^7.2.1",
     "helmet": "^8.1.0",
     "hpp": "^0.2.3",
+    "ioredis": "^5.8.2",
     "joi": "^18.0.1",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.19.1",
