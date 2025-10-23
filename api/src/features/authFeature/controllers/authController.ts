@@ -5,6 +5,7 @@ import { findUserByEmail } from "../utils/validator/emailValidator.js";
 import { attachTrails } from "../middlewares/attachRemainingAttempts.js";
 import { loginRateLimiter } from "../middlewares/loginRateLimiter.js";
 import { Errors} from "../../../utils/enums/errorEnum.js";
+import { Messages } from "../../../utils/enums/messageEnum.js";
 
 export const login = async (req: Request, res: Response): Promise<void> => {
   try {
@@ -52,7 +53,7 @@ export const login = async (req: Request, res: Response): Promise<void> => {
     });
 
     res.status(200).json({
-      message: "Login successful",
+      code:Messages.Msg003, 
       data: { token },
     });
 

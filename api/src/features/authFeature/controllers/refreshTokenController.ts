@@ -1,5 +1,7 @@
 import {  Response } from "express";
 import { generateToken } from "../../../utils/jwt.js";
+import { Messages } from "../../../utils/enums/messageEnum.js";
+import { Errors } from "../../../utils/enums/errorEnum.js";
 
 export const refreshToken = (req: any, res: Response): void => {
   try {
@@ -13,11 +15,10 @@ export const refreshToken = (req: any, res: Response): void => {
     const newAccessToken = generateToken(user.id);
 
     res.status(200).json({
-      message: "Token refreshed successfully",
+      code: Messages.Msg003,
       data: { token: newAccessToken },
     });
   } catch (err: any) {
-    console.error("Refresh Token Error:", err.message);
-    res.status(500).json({ message: "Server error" });
+    res.status(500).json({ code: Errors.Err012 });
   }
 };

@@ -16,6 +16,14 @@ export const verifyToken = (token: string): any => {
     return jwt.verify(token, ENV.JWT_SECRET_REFRESH);
   } catch (error) {
     return null;
+  }};
+export const verifyAccessToken = (token: string): any => {
+  try {
+    return jwt.verify(token, ENV.JWT_SECRET);
+  } catch (error) {
+    return null;
   }
+
 };
+
 
