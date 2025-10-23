@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import logger from "../utils/logger.ts";
+import { seedUsers } from "./seeding/userSeeding.ts";
 
 dotenv.config();
 
@@ -14,6 +15,7 @@ const dbConnection = async (): Promise<void> => {
 
     await mongoose.connect(mongoURL);
     logger.info("Database connected successfully");
+    await seedUsers();
   } catch (error: any) {
     logger.error(`Database connection failed: ${error.message}`);
     process.exit(1);
