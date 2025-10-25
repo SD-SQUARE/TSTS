@@ -2,6 +2,16 @@ body{
   margin: 0;
 }
 
+.hover-fill {
+  transition: all 0.3s ease;
+}
+
+.hover-fill:hover {
+  background-color: #ff4d4f !important; /* fills with red */
+  color: white !important; /* text color turns white */
+  border-color: #ff4d4f !important;
+}
+
 .custom-sidebar-menu .ant-menu-item-selected {
   background-color: transparent !important; /* remove blue background */
   color: #ebc35a !important; /* gold text */

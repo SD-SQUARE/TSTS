@@ -45,5 +45,16 @@
 "sidebar": {
     "welcome": "مرحبا،",
     "logout": "تسجيل خروج"
+},
+"profile": {
+    "title": "ملفي",
+    "accountInfo": "معلومات الحساب",
+    "changePassword": "تغيير كلمة المرور",
+    "edit": "تحرير",
+    "save": "حفظ",
+    "username": "اسم المستخدم",
+    "email": "البريد الإلكتروني",
+    "changePicture": "تغيير الصورة",
+    "cancel": "الغاء"
 }  
 }
