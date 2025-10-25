@@ -42,7 +42,7 @@ const Sidebar: React.FC<SidebarProps> = ({ collapsed, name }) => {
         >
             <div
                 style={{
-                    height: "100%",
+                    height: "92vh",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "space-between",

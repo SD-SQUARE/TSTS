@@ -16,25 +16,52 @@ const MainLayout: React.FC<MainLayoutProps> = ({ name }) => {
     const isArabic = i18n.language === "ar";
     const [collapsed, setCollapsed] = useState(false);
 
+    const siderWidth = collapsed ? 80 : 250;
+    const headerHeight = 64;
+
     return (
         <Layout style={{ minHeight: "100vh", direction: isArabic ? "rtl" : "ltr" }}>
-            <Navbar collapsed={collapsed} setCollapsed={setCollapsed} />
-            <Layout>
+            <div style={{
+                    position: "fixed",
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    zIndex: 1000,
+                }}>
+                <Navbar collapsed={collapsed} setCollapsed={setCollapsed} />
+            </div>
+            <div
+                style={{
+                    position: "fixed",
+                    top: headerHeight,
+                    bottom: 0,
+                    [isArabic ? "right" : "left"]: 0,
+                    zIndex: 999,
+                }}
+            >
                 <Sidebar collapsed={collapsed} name={name} />
-                <Layout style={{ padding: 20 }}>
+            </div>
+            
+                <Layout style={{
+                    marginTop: headerHeight,
+                    marginLeft: isArabic ? 0 : siderWidth,
+                    marginRight: isArabic ? siderWidth : 0,
+                    transition: "all 0.2s",
+                    padding: 20,
+                    background: "#f5f6fa",
+                    minHeight: "calc(100vh - 64px)",
+                }}>
                     <Content
                         style={{
-                            background: "#fff",
                             borderRadius: 8,
                             padding: 24,
-                            boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+                            height: '100%',
                         }}
                     >
                         <Outlet />
                     </Content>
                 </Layout>
             </Layout>
-        </Layout>
     );
 };
 
