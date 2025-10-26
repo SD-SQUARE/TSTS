@@ -1,42 +1,93 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.login-card {
+    display: flex;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 950px;
+    margin: 0 auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transform: scale(1);
+    transition: all 0.3s ease-in-out;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .login-card.hovered {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    transform: scale(1.02);
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  
+  .login-left {
+    flex: 1;
+    background-color: #0c1b33;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2rem;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+  
+  .login-right {
+    flex: 1;
+    background-color: #6f8dbe;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3rem 2rem;
+  }
+  
+  .login-title {
+    text-align: center;
+    margin-bottom: 24px;
+    color: #0c1b33;
+  }
+  
+  .login-input {
+    background-color: #eaeaf0 !important;
+    border-radius: 8px !important;
+    height: 42px !important;
+  }
+  
+  .forgot-password {
+    text-align: right;
+    margin-bottom: 1rem;
+  }
+  
+  .forgot-password a {
+    color: #0c1b33;
+    font-weight: 500;
+    text-decoration: none;
+  }
+  
+  .forgot-password a:hover {
+    text-decoration: underline;
+  }
+  
+  .login-button {
+    background-color: #0c1b33 !important;
+    border: none !important;
+    border-radius: 8px !important;
+    height: 45px !important;
+    font-weight: 600 !important;
+  }
+  .form-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    color: #0c1b33;
+  }
+  
+  .label-icon {
+    color: #0c1b33;
+    font-size: 16px;
+  }
+  
+  @media (max-width: 767px) {
+    .login-left {
+      display: none;
+    }
+  
+    .login-right {
+      flex: 1 1 100%;
+      padding: 2rem 1.5rem;
+    }
 }

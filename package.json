@@ -1,14 +1,22 @@
 {
   "scripts": {
+    "dev": "vite",
     "prepare": "husky install"
   },
   "lint-staged": {
-    "client/src/**/*.{ts,tsx,js,jsx,css,scss,json,md}": ["npm run lint --prefix client", "npm run format --prefix client"],
-    "api/src/**/*.{ts,js,json,md}": ["npm run lint --prefix api", "npm run format --prefix api"]
+    "client/src/**/*.{ts,tsx,js,jsx,css,scss,json,md}": [
+      "npm run lint --prefix client",
+      "npm run format --prefix client"
+    ],
+    "api/src/**/*.{ts,js,json,md}": [
+      "npm run lint --prefix api",
+      "npm run format --prefix api"
+    ]
   },
   "devDependencies": {
     "@commitlint/cli": "^20.1.0",
     "@commitlint/config-conventional": "^20.0.0",
+    "@vitejs/plugin-react": "^4.7.0",
     "husky": "^9.1.7",
     "lint-staged": "^15.5.2",
     "prettier": "^3.6.2"

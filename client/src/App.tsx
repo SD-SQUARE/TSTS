@@ -1,44 +1,55 @@
+import React from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import LoginForm from './components/LoginForm/LoginForm.jsx';
+import { useAuthStatus } from './components/LoginForm/hooks/useAuthStatus.ts';
+import { Layout, Typography } from 'antd';
+import './App.css'; 
 
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+const { Header, Content, Footer } = Layout;
+const { Title } = Typography;
 
-/**
- * App component.
- *
- * Renders the app component which displays the Vite and React logos, a counter
- * and a paragraph with links to the Vite and React documentation.
- *
- * @returns {JSX.Element} The app component.
- */
-function App() {
-  const [count, setCount] = useState(0)
+const ProfilePage= () => {
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div style={{ padding: 24, textAlign: 'center' }}>
+      <Title level={1}>Welcome Back! 🎉</Title>
+      <p>This is your secure profile page.</p>
+      <p>Authentication was successful.</p>
+    </div>
+  );
+};
 
-export default App
+const App = () => {
+  const { isAuthenticated } = useAuthStatus();
+
+  return (
+    <Layout style={{ minHeight: '100vh' }}>
+      <Header style={{ backgroundColor: '#001529', padding: '0 50px' }}>
+        <Title level={3} style={{ color: 'white', margin: 0, lineHeight: '64px' }}>
+         Login Page
+        </Title>
+      </Header>
+      <Content style={{ padding: '0 50px', marginTop: 64 }}>
+        <div className="site-layout-content">
+          <Routes>
+            <Route path="/login" element={
+              isAuthenticated ? <Navigate to="/profile" replace /> : <LoginForm />
+            } />
+            <Route path="/profile" element={
+              isAuthenticated ? <ProfilePage /> : <Navigate to="/login" replace />
+            } />
+
+            <Route path="/" element={<Navigate to="/login" replace />} />
+            
+            <Route path="*" element={<Title level={4} style={{ textAlign: 'center', marginTop: 100 }}>404 - Page Not Found</Title>} />
+          </Routes>
+        </div>
+      </Content>
+      {/* <Footer style={{ textAlign: 'center' }}>
+        Ant Design Login Form ©2025 Created for Development Task
+      </Footer> */}
+    </Layout>
+  );
+};
+
+export default App;
